@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js" integrity="sha512-dnUg2JxjlVoXHVdSMWDYm2Y5xcIrJg1N+juOuRi0yLVkku/g26rwHwysJDAMwahaDfRpr1AxFz43ktuMPr/l1A==" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div style="float: left;" >
+        Voto do candidatos A:
+        <input type="text" id="ipt_recebedor"><br>
+        Voto do candidatos B:
+        <input type="text" id="ipt_recebedor_2"><br>
+        Voto nulo/branco:
+        <input type="text" id="ipt_recebedor_3"><br>
+        <button onclick="avaliar()">Avaliar</button>
+        <div style="width: 500px;">
+            <canvas style="width: 400; height: 400;" id="chart"></canvas>
+        </div>
+    </div>
+
+    <div style="float: left; width: 300px;" id="div_msg"></div>
+    <span id="span_msg"></span>
+   
+</body>
+</html>
+
+<script>
+
+    function avaliar(){
+    var recebedor_a = ipt_recebedor.value;
+    var recebedor_b = ipt_recebedor_2.value;
+    var recebedor_nulo = ipt_recebedor_3.value;
+    var ctx = chart.getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Candidato A', 'Candidato B', 'Votos Nulos/Brancos'],
+            datasets: [{
+                label: '# Eleições',
+                
+                data: [recebedor_a, recebedor_b, recebedor_nulo],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(218, 165, 32, 0.5)',
+                
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(218, 165, 32, 1)',
+                    
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            scales: { 
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+    
+    }
+
+    
+</script>
