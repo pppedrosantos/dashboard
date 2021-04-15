@@ -11,15 +11,66 @@
     ></script>
     <title>Document</title>
   </head>
-  <body>
-     <h2 style="text-align: center;">Pesquisa Eleitoral</h2>
+  <body style="background-color: rgb(230, 230, 230); font-family: Arial, Helvetica, sans-serif;">
+    
+     <h2 style="text-align: center; color: rgb(1, 1, 109);">Pesquisa Eleitoral </h2>
+     <hr>
 
-    <div style="width: 50%; margin-left: 25%;">
+    <div style="width: 50%; margin-left: 25%">
       <canvas  id="chart"></canvas>
     </div>
+    
+    
   </body>
 </html>
 <script>
+
+  var candidato_a_agosto = parseInt(Math.random() * 100 + 1);
+  var candidato_b_agosto = parseInt(Math.random() * 100 + 1);
+  var candidato_c_agosto = parseInt(Math.random() * 100 + 1);
+ 
+  var somatorio = Number(candidato_a_agosto) + Number(candidato_b_agosto) + Number(candidato_c_agosto);
+
+  candidato_a_agosto = somatorio / candidato_a_agosto;
+  candidato_a_agosto = 100 / candidato_a_agosto;
+
+  candidato_b_agosto = somatorio / candidato_b_agosto;
+  candidato_b_agosto = 100 / candidato_b_agosto;
+
+  candidato_c_agosto = somatorio / candidato_c_agosto;
+  candidato_c_agosto = 100 / candidato_c_agosto;
+
+  var candidato_a_setembro = parseInt(Math.random() * 101 + 1);
+  var candidato_b_setembro = parseInt(Math.random() * 101 + 1);
+  var candidato_c_setembro = parseInt(Math.random() * 101 + 1);
+
+  var somatorio2 = Number(candidato_a_setembro) + Number(candidato_b_setembro) + Number(candidato_c_setembro);
+
+  candidato_a_setembro = somatorio2 / candidato_a_setembro;
+  candidato_a_setembro = 100 / candidato_a_setembro;
+
+  candidato_b_setembro = somatorio2 / candidato_b_setembro;
+  candidato_b_setembro = 100 / candidato_b_setembro;
+
+  candidato_c_setembro = somatorio2 / candidato_c_setembro;
+  candidato_c_setembro = 100 / candidato_c_setembro;
+
+
+  var candidato_a_outubro = parseInt(Math.random() * 101 + 1);
+  var candidato_b_outubro = parseInt(Math.random() * 101 + 1);
+  var candidato_c_outubro = parseInt(Math.random() * 101 + 1);
+  
+  var somatorio3 = Number(candidato_a_outubro) + Number(candidato_b_outubro) + Number(candidato_c_outubro);
+
+  candidato_a_outubro = somatorio3 / candidato_a_outubro;
+  candidato_a_outubro = 100 / candidato_a_outubro;
+
+  candidato_b_outubro = somatorio3 / candidato_b_outubro;
+  candidato_b_outubro = 100 / candidato_b_outubro;
+
+  candidato_c_outubro = somatorio3 / candidato_c_outubro;
+  candidato_c_outubro = 100 / candidato_c_outubro;
+
   // Cria o contexto do CANVAS
   var ctx = chart.getContext("2d");
 
@@ -27,11 +78,12 @@
   var config = {
     type: "line", // Aqui falo qual modelo de grafico vou querer
     data: {
-      labels: ["Agosto", "Setembro", "Novembro"], // Aqui são as legendas do grafico
+      labels: ["Agosto", "Setembro", "Outubro"], // Aqui são as legendas do grafico
+      
       datasets: [ 
         {
           label: "Candidato A", // Titulo do grafico
-          data: [25, 40, 25], // Dados do grafico
+          data: [candidato_a_agosto.toFixed(2), candidato_a_setembro.toFixed(2), candidato_a_outubro.toFixed(2)], // Dados do grafico
           backgroundColor: [
             "rgba(255, 99, 132, 0.2)",
             
@@ -44,7 +96,7 @@
         },
         {
         label: "Candidato B", // Titulo do grafico
-          data: [25, 32, 35], // Dados do grafico
+          data: [candidato_b_agosto.toFixed(2), candidato_b_setembro.toFixed(2), candidato_b_outubro.toFixed(2)], // Dados do grafico
           backgroundColor: [
             "rgba(54, 162, 235, 0.2)",
           ],
@@ -54,9 +106,9 @@
           borderWidth: 2,
         },{
           label: "Votos Brancos/Nulos", // Titulo do grafico
-          data: [50, 28, 40], // Dados do grafico
+          data: [candidato_c_agosto.toFixed(2), candidato_c_setembro.toFixed(2), candidato_c_outubro.toFixed(2)], // Dados do grafico
           backgroundColor: [
-          "rgba(255, 206, 86, 1)",
+          "rgba(255, 206, 86, 0.2)",
           ],
           borderColor: [
             
